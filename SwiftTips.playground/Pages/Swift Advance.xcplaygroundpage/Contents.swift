@@ -14,24 +14,28 @@ let mapped = mapArray.map {
 let num: [Int?] = [48, 99, nil]
 
 let compactMap1 = num.compactMap {$0}
-//let compactMap2 = num.compactMap { (number) -> Int? in
-//
-//    if number%9 == 0 {
-//        return number
-//    }
-//
-//    return nil
-//}
+print(compactMap1)
+let compactMap2 = num.compactMap { (number) -> Int? in
 
-// flatMap，拆包可选型数据组成一个新数组
+    guard number != nil else {
+        return nil
+    }
+    if number!%9 == 0 {
+        return number
+    }
+
+    return nil
+}
+
+// flatMap
+// 拆包可选型（optional）数据组成一个新数组
+// ps. 只能拆一层,例如，三维数组会变成二维数组
 let array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 let arr2 = array.flatMap{ $0 }
-arr2
-
 
 // reduct
 
-
+let reduceArray = arr2.reduce(0, +)
 
 
 //: [Next](@next)
