@@ -7,5 +7,6 @@
         <page name='Tree'/>
         <page name='math'/>
         <page name='Offer'/>
+        <page name='Stack'/>
     </pages>
 </playground>
