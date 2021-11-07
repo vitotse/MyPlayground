@@ -8,5 +8,6 @@
         <page name='math'/>
         <page name='Offer'/>
         <page name='Stack'/>
+        <page name='Offer-06'/>
     </pages>
 </playground>
