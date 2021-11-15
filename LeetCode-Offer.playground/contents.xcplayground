@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Offer-03'/>
+        <page name='Offer-04'/>
+        <page name='Offer-05'/>
+        <page name='Offer-06'/>
+        <page name='Offer-09'/>
+        <page name='Offer-15'/>
+        <page name='Offer-30'/>
+        <page name='Offer-53-I'/>
+        <page name='Offer-53-II'/>
+        <page name='Offer-58'/>
+        <page name='Offer-50'/>
+    </pages>
+</playground>
