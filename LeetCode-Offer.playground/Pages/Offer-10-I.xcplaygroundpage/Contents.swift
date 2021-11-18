@@ -28,14 +28,11 @@ class Solution {
         numMap[n] = self.fib(n - 1) + self.fib(n - 2)
         
         /// 1000000007 是最小的十位质数。模1000000007，可以保证值永远在int的范围内。
-    
         return (self.fib(n - 1) + self.fib(n - 2))%1000000007
     }
 }
 
 let solution = Solution()
 solution.fib(45)
-
-
 
 //: [Next](@next)
