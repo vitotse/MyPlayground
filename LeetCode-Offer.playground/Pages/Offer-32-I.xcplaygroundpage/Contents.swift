@@ -2,23 +2,38 @@
 
 /// 剑指 Offer 32 - I. 从上到下打印二叉树
 /// https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/
+///
+/// 二叉树 层遍历
 import Foundation
 
 class Solution {
     func levelOrder(_ root: TreeNode?) -> [Int] {
 
-        var tree = [Int]()
+        var tree = [root]
+        var vals = [Int]()
         
-        while root?.val != nil {
+        while tree.count > 0 {
             
-            tree.append(root?.val!)
-            
-            if
+            if let rootTree = tree.first {
+                
+                if let left = rootTree?.left {
+                    tree.append(left)
+                }
+                
+                if let right = rootTree?.right {
+                    tree.append(right)
+                }
+                
+                if let val = rootTree?.val {
+                    vals.append(val)
+                }
+                tree.removeFirst()
+                
+            }
             
         }
         
-        return tree
-        
+        return vals
         
     }
 }
