@@ -55,3 +55,16 @@ var singleArray:[Int] = [1,1,2,3,3]
 
 singleNumber(singleArray)
 
+/// https://leetcode-cn.com/problems/remove-element/
+///
+func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+    nums.removeAll { num in
+        return num == val
+    }
+    
+    return nums.count
+}
+
+var removeElementArray = [0,1,2,3,4,5,3,2,3,3,2]
+
+removeElement(&removeElementArray, 3)
