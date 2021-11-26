@@ -10,7 +10,7 @@
         <page name='Offer-30'/>
         <page name='Offer-53-I'/>
         <page name='Offer-53-II'/>
-        <page name='Offer-58'/>
+        <page name='Offer-58-II'/>
         <page name='Offer-50'/>
         <page name='Offer-10-I'/>
         <page name='Offer-11'/>
@@ -21,5 +21,8 @@
         <page name='Offer-39'/>
         <page name='Offer-21'/>
         <page name='Offer-57'/>
+        <page name='Offer-28'/>
+        <page name='Offer-58-I'/>
+        <page name='Offer-61'/>
     </pages>
 </playground>

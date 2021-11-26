@@ -75,4 +75,38 @@ postorderTraversal(treeRoot)
 inorderTraversal(treeRoot)
 
 
+/// 前序迭代
+func preorderTraversalIteration(_ root: TreeNode?) -> [Int] {
+    
+    var list = [Int]()
+    var trees = [TreeNode]()
+    guard let root = root else {
+        return []
+    }
+    
+    trees.append(root)
+    
+    while trees.isEmpty == false {
+        
+        if let node: TreeNode = trees.popLast() {
+            list.append(node.val)
+            if let right = node.right {
+                trees.append(right)
+            }
+            
+            if let left = node.left {
+                trees.append(left)
+            }
+        } else {
+            break
+        }
+        
+    }
+    
+    return list
+    
+}
+
+preorderTraversalIteration(treeRoot)
+
 //: [Next](@next)
