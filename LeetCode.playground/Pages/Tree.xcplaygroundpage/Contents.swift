@@ -67,8 +67,11 @@ func posTraversal(_ root: TreeNode?, list:inout [Int]) {
 let treeRoot = TreeNode.init(1)
 let tree2 = TreeNode.init(2)
 let tree21 = TreeNode.init(3)
+let tree22 = TreeNode.init(4)
+
 treeRoot.right = tree2
 tree2.left = tree21
+tree2.right = tree22
 
 preorderTraversal(treeRoot)
 postorderTraversal(treeRoot)
@@ -148,5 +151,45 @@ func rightSideView(_ root: TreeNode?) -> [Int] {
 }
 
 rightSideView(treeRoot)
+
+func averageOfLevels(_ root: TreeNode?) -> [Double] {
+
+    var result = [Double]()
+    
+    if root == nil {
+        return result
+    }
+    var trees: [TreeNode] = [root!]
+
+    
+    while trees.count > 0 {
+        
+        var sum: Int = 0
+        var subTress = [TreeNode]()
+        
+        for node in trees {
+            
+            sum += node.val
+            
+            if let left = node.left {
+                subTress.append(left)
+            }
+            
+            if let right = node.right {
+                subTress.append(right)
+            }
+            
+        }
+        
+        result.append(Double(Double(sum) / Double(trees.count)))
+        trees = subTress
+
+    }
+    
+    return result
+}
+
+averageOfLevels(treeRoot)
+
 
 //: [Next](@next)
