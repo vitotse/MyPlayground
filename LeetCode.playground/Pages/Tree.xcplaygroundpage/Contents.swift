@@ -109,4 +109,44 @@ func preorderTraversalIteration(_ root: TreeNode?) -> [Int] {
 
 preorderTraversalIteration(treeRoot)
 
+/// https://leetcode-cn.com/problems/binary-tree-right-side-view/
+/// 右视图
+func rightSideView(_ root: TreeNode?) -> [Int] {
+    
+    var result = [Int]()
+    
+    if root == nil {
+        return result
+    }
+    var trees: [TreeNode] = [root!]
+    
+    while trees.count > 0 {
+        
+        var values = [Int]()
+        var subTress = [TreeNode]()
+        
+        for node in trees {
+            values.append(node.val)
+            
+            if let left = node.left {
+                subTress.append(left)
+            }
+            
+            if let right = node.right {
+                subTress.append(right)
+            }
+            
+        }
+        trees = subTress
+        
+        result.append(values.last!)
+        
+    }
+    
+    return result
+    
+}
+
+rightSideView(treeRoot)
+
 //: [Next](@next)
