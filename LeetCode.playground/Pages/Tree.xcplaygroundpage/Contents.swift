@@ -152,6 +152,8 @@ func rightSideView(_ root: TreeNode?) -> [Int] {
 
 rightSideView(treeRoot)
 
+/// 637. 二叉树的层平均值
+/// https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/
 func averageOfLevels(_ root: TreeNode?) -> [Double] {
 
     var result = [Double]()
@@ -190,6 +192,35 @@ func averageOfLevels(_ root: TreeNode?) -> [Double] {
 }
 
 averageOfLevels(treeRoot)
-
+ 
+/// 429. N 叉树的层序遍历
+/// https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
+class Solution {
+    func levelOrder(_ root: Node?) -> [[Int]] {
+        var result = [[Int]]()
+        
+        if root == nil {
+            return result
+        }
+        var trees: [Node] = [root!]
+        
+        while trees.count > 0 {
+            
+            var values = [Int]()
+            var subNodes = [Node]()
+            
+            for node in trees {
+                values.append(node.val)
+                
+                subNodes.append(contentsOf: node.children)
+            }
+            trees = subNodes
+               
+            result.append(values)
+        }
+        
+        return result
+    }
+}
 
 //: [Next](@next)
