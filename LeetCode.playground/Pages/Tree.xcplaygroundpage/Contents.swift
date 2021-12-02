@@ -223,4 +223,51 @@ class Solution {
     }
 }
 
+/// 515. 在每个树行中找最大值
+/// https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/
+
+func largestValues(_ root: TreeNode?) -> [Int] {
+
+    var result = [Int]()
+    
+    if root == nil {
+        return result
+    }
+    
+    var trees: [TreeNode] = [root!]
+    
+    while trees.count > 0 {
+        
+        var leaves = [TreeNode]()
+        var largestLevelValue: Int?
+        for tree in trees {
+            
+            if largestLevelValue != nil {
+                largestLevelValue = max(largestLevelValue!, tree.val)
+            } else {
+                largestLevelValue = tree.val
+
+            }
+            
+            if let left = tree.left {
+                leaves.append(left)
+            }
+            
+            if let right = tree.right {
+                leaves.append(right)
+            }
+            
+        }
+        trees = leaves
+        
+        result.append(largestLevelValue!)
+    }
+    
+    
+    return result
+}
+
+largestValues(treeRoot)
+
+
 //: [Next](@next)
