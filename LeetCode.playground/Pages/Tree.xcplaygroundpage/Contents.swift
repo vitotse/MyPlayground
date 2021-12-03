@@ -269,5 +269,76 @@ func largestValues(_ root: TreeNode?) -> [Int] {
 
 largestValues(treeRoot)
 
+/// 116. 填充每个节点的下一个右侧节点指针
+/// https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
+/// 117. 填充每个节点的下一个右侧节点指针 II
+/// https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/submissions/
+public class Node1 {
+    public var val: Int
+    public var left: Node1?
+    public var right: Node1?
+    public var next: Node1?
+    public init(_ val: Int) {
+        self.val = val
+        self.left = nil
+        self.right = nil
+        self.next = nil
+    }
+}
+
+func connect(_ root: Node1?) -> Node1? {
+    
+    var trees: [Node1] = [root!]
+    if root == nil {
+        return root
+    }
+    while trees.count > 0 {
+        
+        var leaves = [Node1]()
+        var preNode: Node1?
+        for tree in trees {
+            
+            if preNode != nil {
+                preNode!.next = tree
+                preNode = preNode!.next
+            } else {
+                preNode = tree
+
+            }
+            
+            if let left = tree.left {
+                leaves.append(left)
+            }
+            
+            if let right = tree.right {
+                leaves.append(right)
+            }
+            
+        }
+        
+        trees = leaves
+        
+    }
+    
+    return root
+}
+
+let rootNode1 = Node1.init(1)
+let node1_11 = Node1.init(2)
+let node1_12 = Node1.init(3)
+let node1_21 = Node1.init(4)
+let node1_22 = Node1.init(5)
+let node1_23 = Node1.init(6)
+let node1_24 = Node1.init(7)
+
+rootNode1.left = node1_11
+rootNode1.right = node1_12
+node1_11.left = node1_21
+node1_11.right = node1_22
+node1_12.left = node1_23
+node1_12.right = node1_24
+
+connect(rootNode1)
+
 
 //: [Next](@next)
