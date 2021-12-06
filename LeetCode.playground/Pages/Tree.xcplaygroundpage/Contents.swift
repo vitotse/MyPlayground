@@ -405,4 +405,32 @@ func compareNode(_ left: TreeNode?, _ right: TreeNode?) -> Bool {
 }
 
 
+/// 559. N 叉树的最大深度
+/// https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree/
+func maxDepth(_ root: Node?) -> Int {
+        
+    if root == nil {
+       return 0
+    }
+    
+    var leaves = [root!]
+    var depth = 0
+    while leaves.count > 0 {
+        
+        var nodes = [Node]()
+        for node in leaves {
+            
+            for child in node.children {
+                nodes.append(child)
+            }
+        }
+        
+        leaves = nodes
+        depth += 1
+        
+    }
+    
+    return depth
+}
+
 //: [Next](@next)
