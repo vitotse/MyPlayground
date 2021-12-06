@@ -340,5 +340,69 @@ node1_12.right = node1_24
 
 connect(rootNode1)
 
+/// 226. 翻转二叉树
+/// https://leetcode-cn.com/problems/invert-binary-tree/
+
+func invertTree(_ root: TreeNode?) -> TreeNode? {
+
+    if root == nil {
+        return root
+    }
+    
+    
+    return invertT(root!)
+}
+
+func invertT(_ root: TreeNode) -> TreeNode {
+    
+    let tempNode = root.left
+    
+    if let right = root.right {
+        root.left = invertT(right)
+    } else {
+        root.left = nil
+    }
+    if let left = tempNode {
+        root.right = invertT(left)
+    } else {
+        root.right = nil
+    }
+    
+    return root
+    
+}
+
+invertTree(treeRoot)
+
+/// 101. 对称二叉树
+/// https://leetcode-cn.com/problems/symmetric-tree/
+func isSymmetric(_ root: TreeNode?) -> Bool {
+
+    if let root = root {
+        return compareNode(root.left, root.right)
+    }
+    
+    return true
+}
+
+func compareNode(_ left: TreeNode?, _ right: TreeNode?) -> Bool {
+    
+    if left == nil && right != nil {
+        return false
+    } else if left != nil && right == nil {
+        return false
+    } else if left == nil && right == nil {
+        return true
+    } else if left?.val != right?.val {
+        return false
+    }
+    
+    let outside = compareNode(left?.left, right?.right)
+    let inside = compareNode(left?.right, right?.left)
+
+    return (outside && inside)
+    
+}
+
 
 //: [Next](@next)
