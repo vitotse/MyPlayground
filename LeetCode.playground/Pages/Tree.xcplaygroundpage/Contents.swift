@@ -433,4 +433,31 @@ func maxDepth(_ root: Node?) -> Int {
     return depth
 }
 
+/// 111. 二叉树的最小深度
+/// https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
+func minDepth(_ root: TreeNode?) -> Int {
+
+    return getMinDepth(root)
+}
+
+func getMinDepth(_ root: TreeNode?) -> Int {
+    if root == nil {
+        return 0
+    }
+    
+    let leftDepth = getMinDepth(root?.left)
+    let rightDepth = getMinDepth(root?.right)
+    
+    if root?.left == nil && root?.right != nil {
+        return 1 + rightDepth
+    }
+    
+    if root?.right == nil && root?.left != nil {
+        return 1 + leftDepth
+    }
+    
+    let result = 1 + min(leftDepth, rightDepth)
+    return result
+
+}
 //: [Next](@next)
