@@ -3,9 +3,6 @@
 /// 剑指 Offer 09. 用两个栈实现队列
 import Foundation
 
-
-
-
 class CQueue {
 
     private var stack1 = [Int]()
