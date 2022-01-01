@@ -204,3 +204,78 @@ var includeZeroes = [0,1,0,3,12]
 
 moveZeroes(&includeZeroes)
 
+/// 1991. 找到数组的中间位置
+/// https://leetcode-cn.com/problems/find-the-middle-index-in-array/
+///
+/// 本题与主站 724 题相同：https://leetcode-cn.com/problems/find-pivot-index/
+
+func findMiddleIndex(_ nums: [Int]) -> Int {
+
+    if nums.count == 1 {
+        return 0
+    }
+    
+    for index in 0..<nums.count {
+        var leftTotal = 0
+        var rightTotal = 0
+        /// 左遍历
+        if index == 0 {
+            rightTotal = 0
+        } else {
+            for leftV in 0...index - 1 {
+                leftTotal += nums[leftV]
+            }
+        }
+        /// 右遍历
+        if (index + 1) >= nums.count {
+            rightTotal = 0
+        } else {
+            for rightV in index+1...nums.count - 1 {
+                rightTotal += nums[rightV]
+            }
+        }
+        
+        if leftTotal == rightTotal {
+            return index
+        }
+    }
+        
+    return -1
+}
+
+//findMiddleIndex([1,2,3, 5, 6])
+findMiddleIndex([4, 0])
+
+/// 36. 有效的数独
+/// https://leetcode-cn.com/problems/valid-sudoku/
+//func isValidSudoku(_ board: [[Character]]) -> Bool {
+//
+//    let nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+//
+//    for (row, string) in board.enumerated() {
+//        for (col, char) in string.enumerated() {
+//
+//            if char == '.' {
+//                continue
+//            }
+//
+//            print(<#T##items: Any...##Any#>)
+//        }
+//    }
+//
+//     return false
+//}
+//
+//let board =
+//[[5','3','.','.','7','.','.','.','.']
+//,['6','.','.','1','9','5','.','.','.']
+//,['.','9','8','.','.','.','.','6','.']
+//,['8','.','.','.','6','.','.','.','3']
+//,['4','.','.','8','.','3','.','.','1']
+//,['7','.','.','.','2','.','.','.','6']
+//,['.','6','.','.','.','.','2','8','.']
+//,['.','.','.','4','1','9','.','.','5']
+//,['.','.','.','.','8','.','.','7','9']]
+//
+//
+//isValidSudoku(board)

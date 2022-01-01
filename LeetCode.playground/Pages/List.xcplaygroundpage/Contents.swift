@@ -99,52 +99,165 @@
 //
 /////
 ///  21
-class Solution21 {
-    func mergeTwoLists(_ l1: inout ListNode?, _ l2: inout ListNode?) -> ListNode? {
-        
-        let dummy: ListNode = ListNode.init()
-        var cur = dummy
-        
-        while (l1 != nil || l2 != nil) {
-            
-            if l1?.val ?? 0 >= head2?.val ?? 0 {
-                cur.next = l1
-                if let next = l1!.next {
-                    l1 = next
-                    print(next.val)
-                }else {
-                    l1 = nil
-                }
-            } else {
-                cur.next = l2
-                if let next = l2!.next {
-                    l2 = next
-                }else {
-                    l2 = nil
-                }
-            }
+//class Solution21 {
+//    func mergeTwoLists(_ l1: inout ListNode?, _ l2: inout ListNode?) -> ListNode? {
+//
+//        let dummy: ListNode = ListNode.init()
+//        var cur = dummy
+//
+//        while (l1 != nil || l2 != nil) {
+//
+//            if l1?.val ?? 0 >= head2?.val ?? 0 {
+//                cur.next = l1
+//                if let next = l1!.next {
+//                    l1 = next
+//                    print(next.val)
+//                }else {
+//                    l1 = nil
+//                }
+//            } else {
+//                cur.next = l2
+//                if let next = l2!.next {
+//                    l2 = next
+//                }else {
+//                    l2 = nil
+//                }
+//            }
+//
+//            if let next = cur.next {
+//                cur = next
+//            }
+//
+//        }
+//
+//        return dummy.next
+//    }
+//}
+//
+//var headNode12 = ListNode(6)
+//var headNode11 = ListNode(2, headNode12)
+//var headNode1 = ListNode(1, headNode11)
+//
+//ListNode.showList(head: headNode1)
+//
+//var headNode22 = ListNode(3)
+//var headNode21 = ListNode(1, headNode22)
+//var headNode2 = ListNode(1, headNode21)
+//
+//ListNode.showList(head: headNode2)
+//
+//let solution21 = Solution21()
+//let mergeNode = solution21.mergeTwoLists(headNode1, headNode2)
 
-            if let next = cur.next {
-                cur = next
-            }
 
-        }
-        
-        return dummy.next
+var node1 = ListNode.init(5)
+var node10 = ListNode.init(4)
+var node100 = ListNode.init(9)
+
+node1.next = node10
+node10.next = node100
+
+var node2 = ListNode.init(5)
+var node20 = ListNode.init(4)
+var node200 = ListNode.init(9)
+
+node2.next = node20
+node20.next = node200
+
+///// 2. 两数相加
+///// https://leetcode-cn.com/problems/add-two-numbers/
+//func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+//
+//    var inNum = 0
+//    var newNode: ListNode = ListNode()
+//
+//    let resultNode = newNode
+//
+//    var node1: ListNode? = l1
+//    var node2: ListNode? = l2
+//
+//    while node1 != nil || node2 != nil {
+//
+//        let sum = (node1?.val ?? 0) + (node2?.val ?? 0) + inNum
+//
+//        inNum = sum / 10
+//        newNode.next = ListNode(sum % 10)
+//        newNode = newNode.next!
+//        node1 = node1?.next
+//        node2 = node2?.next
+//    }
+//
+//    if inNum == 1 {
+//        newNode.next = ListNode.init(inNum)
+//    }
+//
+//
+//    return resultNode.next
+//
+//}
+//
+//addTwoNumbers(node1, node2)
+
+/// 203. 移除链表元素
+/// https://leetcode-cn.com/problems/remove-linked-list-elements/
+///
+/// 用递归解题
+func removeElements1(_ head: ListNode?, _ val: Int) -> ListNode? {
+
+    if head == nil {
+        return nil
+    }
+
+    head!.next = removeElements(head!.next, val)
+    
+    if head!.val == val {
+        return head!.next
+    } else {
+        return head
     }
 }
 
-var headNode12 = ListNode(6)
-var headNode11 = ListNode(2, headNode12)
-var headNode1 = ListNode(1, headNode11)
+func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
 
-ListNode.showList(head: headNode1)
+    let dummyNode = ListNode()
+    dummyNode.next = head
+    
+    var prevNode = dummyNode
+    
+    while prevNode.next != nil {
+        
+        if prevNode.next!.val == val {
+            prevNode.next = prevNode.next?.next
+        } else {
+            prevNode = prevNode.next!
+        }
+               
+    }
+    
+    return dummyNode.next
+}
 
-var headNode22 = ListNode(3)
-var headNode21 = ListNode(1, headNode22)
-var headNode2 = ListNode(1, headNode21)
 
-ListNode.showList(head: headNode2)
+/// 83. 删除排序链表中的重复元素
+/// https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+func deleteDuplicates(_ head: ListNode?) -> ListNode? {
 
-let solution21 = Solution21()
-let mergeNode = solution21.mergeTwoLists(headNode1, headNode2)
+    let dumpNode = ListNode.init()
+    dumpNode.next = head
+    var preNode = dumpNode.next
+    
+    while preNode?.next != nil {
+        
+        if preNode?.val == preNode?.next?.val {
+            preNode?.next = preNode?.next?.next
+        } else {
+            preNode = preNode?.next
+        }
+        
+    }
+    
+    
+    return dumpNode.next
+    
+}
+
