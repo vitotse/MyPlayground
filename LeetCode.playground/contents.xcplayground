@@ -8,5 +8,6 @@
         <page name='math'/>
         <page name='Offer'/>
         <page name='binarySearch'/>
+        <page name='DynamicProgarmming'/>
     </pages>
 </playground>

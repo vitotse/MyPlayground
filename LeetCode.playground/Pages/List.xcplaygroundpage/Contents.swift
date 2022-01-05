@@ -261,3 +261,80 @@ func deleteDuplicates(_ head: ListNode?) -> ListNode? {
     
 }
 
+/// 232. 用栈实现队列
+/// https://leetcode-cn.com/problems/implement-queue-using-stacks/
+class MyQueue {
+
+    var dumpNode: ListNode?
+    
+    init() {
+        dumpNode = ListNode()
+    }
+    
+    func push(_ x: Int) {
+        
+        var next = dumpNode
+        
+        while next?.next != nil {
+            next = next?.next
+        }
+        
+        next?.next = ListNode.init(x)
+    }
+    
+    func pop() -> Int {
+        guard let firstNode = dumpNode?.next  else {
+            return -1
+        }
+        
+        dumpNode?.next = firstNode.next
+        
+        return firstNode.val
+    }
+    
+    func peek() -> Int {
+        guard let firstNode = dumpNode?.next  else {
+            return -1
+        }
+        
+        return firstNode.val
+    }
+    
+    func empty() -> Bool {
+        if dumpNode?.next == nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+}
+
+let queueNodes = MyQueue()
+queueNodes.push(1)
+queueNodes.push(2)
+queueNodes.pop()
+queueNodes.empty()
+
+
+/// 141. 环形链表
+/// https://leetcode-cn.com/problems/linked-list-cycle/
+func hasCycle(_ head: ListNode?) -> Bool {
+    
+    if head == nil || head?.next == nil {
+        return false
+    }
+    var fast = head
+    var slow = head
+    
+    while fast?.next != nil && fast?.next?.next != nil {
+        fast = fast?.next?.next
+        slow = slow?.next
+        if fast === slow {
+            return true
+        }
+    }
+    return false
+    
+}
+
