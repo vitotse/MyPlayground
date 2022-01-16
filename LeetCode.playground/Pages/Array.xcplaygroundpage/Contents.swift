@@ -248,34 +248,104 @@ findMiddleIndex([4, 0])
 
 /// 36. 有效的数独
 /// https://leetcode-cn.com/problems/valid-sudoku/
-//func isValidSudoku(_ board: [[Character]]) -> Bool {
-//
-//    let nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-//
-//    for (row, string) in board.enumerated() {
-//        for (col, char) in string.enumerated() {
-//
-//            if char == '.' {
-//                continue
-//            }
-//
-//            print(<#T##items: Any...##Any#>)
-//        }
-//    }
-//
-//     return false
-//}
-//
-//let board =
-//[[5','3','.','.','7','.','.','.','.']
-//,['6','.','.','1','9','5','.','.','.']
-//,['.','9','8','.','.','.','.','6','.']
-//,['8','.','.','.','6','.','.','.','3']
-//,['4','.','.','8','.','3','.','.','1']
-//,['7','.','.','.','2','.','.','.','6']
-//,['.','6','.','.','.','.','2','8','.']
-//,['.','.','.','4','1','9','.','.','5']
-//,['.','.','.','.','8','.','.','7','9']]
-//
-//
-//isValidSudoku(board)
+func isValidSudoku(_ board: [[Character]]) -> Bool {
+
+    var rows = [[Character]]()
+    var columns = [[Character]]()
+    var subboxs = [[[Character]]]()
+    
+    for row in 0..<3 {
+        var colChar = [[Character]]()
+        for col in 0..<3 {
+            colChar.append([Character]())
+        }
+        subboxs.append(colChar)
+
+    }
+    
+    for (row, string) in board.enumerated() {
+        rows.append([Character]())
+        for (col, char) in string.enumerated() {
+            columns.append([Character]())
+            if char == "." {
+                continue
+            }
+            
+            if rows[row].contains(char) {
+                return false
+            } else {
+                rows[row].append(char)
+            }
+
+            if columns[col].contains(char) {
+                return false
+            } else {
+                columns[col].append(char)
+            }
+            
+            if subboxs[row/3][col/3].contains(char) {
+                return false
+            } else {
+                subboxs[row/3][col/3].append(char)
+            }
+
+        }
+    }
+
+     return true
+}
+
+let board =
+[[Character.init("5"), Character.init("3") , Character.init("."), Character.init("."), Character.init("7"), Character.init("."),Character.init("."),Character.init("."),Character.init(".")],
+  [Character.init("6"),Character.init("."),Character.init("."),Character.init("1"),Character.init("9"),Character.init("2"),Character.init("."),Character.init("."),Character.init(".")],
+  [Character.init("."),Character.init("9"),Character.init("8"),Character.init("."),Character.init("."),Character.init("."),Character.init("."),Character.init("6"),Character.init(".")],
+  [Character.init("8"),Character.init("."),Character.init("."),Character.init("."),Character.init("6"),Character.init("."),Character.init("."),Character.init("."),Character.init("3")],
+  [Character.init("2"),Character.init("."),Character.init("."),Character.init("8"),Character.init("."),Character.init("3"),Character.init("."),Character.init("."),Character.init("1")],
+  [Character.init("7"),Character.init("."),Character.init("."),Character.init("."),Character.init("2"),Character.init("."),Character.init("."),Character.init("."),Character.init("6")],
+  [Character.init("."),Character.init("6"),Character.init("."),Character.init("."),Character.init("."),Character.init("."),Character.init("2"),Character.init("8"),Character.init(".")],
+  [Character.init("."),Character.init("."),Character.init("."),Character.init("2"),Character.init("1"),Character.init("9"),Character.init("."),Character.init("."),Character.init("2")],
+   [Character.init("."),Character.init("."),Character.init("."),Character.init("."),Character.init("8"),Character.init("."),Character.init("."),Character.init("6"),Character.init("9")]]
+
+
+isValidSudoku(board)
+
+/// 73. 矩阵置零
+/// https://leetcode-cn.com/problems/set-matrix-zeroes/
+func setZeroes(_ matrix: inout [[Int]]) {
+    var zeroCol = [Int]()
+    var zeroRow = [Int]()
+    
+    for (col, colNums) in matrix.enumerated() {
+        for (row, num) in colNums.enumerated()  {
+            
+            if num == 0 {
+                if zeroCol.contains(col) == false {
+                    zeroCol.append(col)
+                }
+                
+                if zeroRow.contains(row) == false {
+                    zeroRow.append(row)
+                }
+            }
+            
+        }
+    }
+    
+    for (col, colNums) in matrix.enumerated() {
+        for (row, num) in colNums.enumerated()  {
+            
+            if num != 0 {
+                if zeroCol.contains(col) == true || zeroRow.contains(row) == true {
+                    matrix[col][row] = 0
+                }
+                
+            }
+                        
+        }
+    }
+    
+}
+
+var matrix = [[1,1,1],[2,0,2],[1,1,1]]
+
+setZeroes(&matrix)

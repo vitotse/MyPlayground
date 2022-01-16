@@ -97,58 +97,67 @@
 //}
 //print("123123123123")
 //
-/////
-///  21
-//class Solution21 {
-//    func mergeTwoLists(_ l1: inout ListNode?, _ l2: inout ListNode?) -> ListNode? {
-//
-//        let dummy: ListNode = ListNode.init()
-//        var cur = dummy
-//
-//        while (l1 != nil || l2 != nil) {
-//
-//            if l1?.val ?? 0 >= head2?.val ?? 0 {
-//                cur.next = l1
-//                if let next = l1!.next {
-//                    l1 = next
-//                    print(next.val)
-//                }else {
-//                    l1 = nil
-//                }
-//            } else {
-//                cur.next = l2
-//                if let next = l2!.next {
-//                    l2 = next
-//                }else {
-//                    l2 = nil
-//                }
-//            }
-//
-//            if let next = cur.next {
-//                cur = next
-//            }
-//
-//        }
-//
-//        return dummy.next
-//    }
-//}
-//
-//var headNode12 = ListNode(6)
-//var headNode11 = ListNode(2, headNode12)
-//var headNode1 = ListNode(1, headNode11)
-//
-//ListNode.showList(head: headNode1)
-//
-//var headNode22 = ListNode(3)
-//var headNode21 = ListNode(1, headNode22)
-//var headNode2 = ListNode(1, headNode21)
-//
-//ListNode.showList(head: headNode2)
-//
-//let solution21 = Solution21()
-//let mergeNode = solution21.mergeTwoLists(headNode1, headNode2)
 
+///  21. 合并两个有序链表
+///  https://leetcode-cn.com/problems/merge-two-sorted-lists/
+func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
+
+    let dummy: ListNode = ListNode.init()
+    var cur = dummy
+
+    var l1 = list1
+    var l2 = list2
+    
+    while (l1 != nil || l2 != nil) {
+
+        if l1 == nil {
+            cur.next = l2
+            break
+        }
+        if l2 == nil {
+            cur.next = l1
+            break
+        }
+        
+        if l1!.val < l2!.val {
+            cur.next = l1
+            if let next = l1!.next {
+                l1 = next
+            }else {
+                l1 = nil
+            }
+        } else {
+            cur.next = l2
+            if let next = l2!.next {
+                l2 = next
+            }else {
+                l2 = nil
+            }
+        }
+
+        if let next = cur.next {
+            cur = next
+        }
+
+    }
+
+    return dummy.next
+}
+
+var headNode12 = ListNode(6)
+var headNode11 = ListNode(2, headNode12)
+var headNode1 = ListNode(1, headNode11)
+
+ListNode.showList(head: headNode1)
+
+var headNode22 = ListNode(3)
+var headNode21 = ListNode(1, headNode22)
+var headNode2 = ListNode(1, headNode21)
+
+ListNode.showList(head: headNode2)
+
+let mergeNode = mergeTwoLists(headNode1 as ListNode?, headNode2 as ListNode?)
+ListNode.showList(head: mergeNode)
 
 var node1 = ListNode.init(5)
 var node10 = ListNode.init(4)

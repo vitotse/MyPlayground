@@ -497,3 +497,101 @@ func getMinDepth(_ root: TreeNode?) -> Int {
 
 }
 //: [Next](@next)
+
+/// 222. 完全二叉树的节点个数
+/// https://leetcode-cn.com/problems/count-complete-tree-nodes/
+/// 递归
+func countNodes(_ root: TreeNode?) -> Int {
+        
+    guard let root = root else {
+        return 0
+    }
+    
+    let sum = countNodes(root.left) + countNodes(root.right) + 1
+    
+    return sum
+    
+}
+
+/// 110. 平衡二叉树
+/// https://leetcode-cn.com/problems/balanced-binary-tree/
+/// 左右子树的层数跨度大于1，就不是平衡二叉树
+func isBalanced(_ root: TreeNode?) -> Bool {
+
+    guard let root = root else {
+        return true
+    }
+    
+    let result = getBalanceTreeDepth(root)
+    
+    if result == -1 {
+        return false
+    } else {
+        return true
+    }
+    
+}
+
+func getBalanceTreeDepth(_ root: TreeNode?) -> Int {
+    
+    if root == nil {
+        return 0
+    }
+    
+    let leftDepth = getBalanceTreeDepth(root?.left)
+    let rightDepth = getBalanceTreeDepth(root?.right)
+    
+    if leftDepth == -1 {
+        return -1
+    }
+    
+    if rightDepth == -1 {
+        return -1
+    }
+    /// 左右子树跨度  >  1 返回 -1
+    return abs(leftDepth - rightDepth) > 1 ? -1 : 1 + max(leftDepth, rightDepth)
+    
+}
+
+
+/// 112. 路径总和
+/// https://leetcode-cn.com/problems/path-sum/
+func hasPathSum(_ root: TreeNode?, _ targetSum: Int) -> Bool {
+
+    guard let root = root else {
+        return false
+    }
+        
+    return traversal(cur: root, count: targetSum - root.val)
+}
+
+func traversal(cur: TreeNode?, count: Int) -> Bool {
+    
+    if cur?.left == nil && cur?.right == nil && count == 0 {
+        return true
+    }
+    
+    if cur?.left == nil && cur?.right == nil {
+        return false
+    }
+    
+    
+    if cur?.left != nil {
+        
+        let temp = count - cur!.left!.val
+        if traversal(cur: cur?.left, count: temp) {
+            return true
+        }
+    }
+    
+    if cur?.right != nil {
+        
+        let temp = count - cur!.right!.val
+        if traversal(cur: cur?.right, count: temp) {
+            return true
+        }
+    }
+    
+    return false
+
+}
