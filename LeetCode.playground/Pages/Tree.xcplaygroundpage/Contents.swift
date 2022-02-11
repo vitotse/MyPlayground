@@ -595,3 +595,199 @@ func traversal(cur: TreeNode?, count: Int) -> Bool {
     return false
 
 }
+
+/// 700. 二叉搜索树中的搜索
+/// https://leetcode-cn.com/problems/search-in-a-binary-search-tree/
+/// 递归解法
+func searchBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
+
+    if root == nil || root?.val == val {
+        return root
+    }
+    
+    if root!.val > val {
+        return searchBST(root?.left, val)
+    }
+    
+    if root!.val < val {
+        return searchBST(root?.right, val)
+    }
+    
+    return nil
+}
+
+/// 迭代解法
+func searchBST_D(_ root: TreeNode?, _ val: Int) -> TreeNode? {
+
+    var head = root
+    while head != nil {
+        if head!.val > val {
+            head = head?.left
+        } else if head!.val < val {
+            head = head?.right
+        } else {
+            return head
+        }
+        
+    }
+    
+    return nil
+}
+
+let bst1 = TreeNode.init(1)
+let bst2 = TreeNode.init(2)
+let bst3 = TreeNode.init(3)
+let bst4 = TreeNode.init(4)
+let bst7 = TreeNode.init(7)
+bst4.left = bst2
+bst2.left = bst1
+bst2.right = bst3
+bst4.right = bst7
+
+let searchNode = searchBST(bst4, 5)
+
+
+/// 701. 二叉搜索树中的插入操作
+/// https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/
+func insertIntoBST(_ root: TreeNode?, _ val: Int) -> TreeNode? {
+    
+    if root == nil {
+        return TreeNode.init(val)
+    }
+    
+    if root!.val > val {
+        root?.left = insertIntoBST(root?.left, val)
+    }
+    
+    if root!.val < val {
+        root?.right = insertIntoBST(root?.right, val)
+    }
+    
+    return root
+}
+
+let insertBST = insertIntoBST(bst4, 5)
+
+/// 98. 验证二叉搜索树
+/// https://leetcode-cn.com/problems/validate-binary-search-tree/
+
+var preBSTTree: TreeNode?
+func isValidBST(_ root: TreeNode?) -> Bool {
+    
+    if root == nil {
+        return true
+    }
+    
+    let left = isValidBST(root?.left)
+    
+    if preBSTTree != nil, preBSTTree!.val >= root!.val {
+        return false
+    }
+    preBSTTree = root
+    
+    let right = isValidBST(root?.right)
+
+    return left && right
+}
+
+
+/// 653. 两数之和 IV - 输入 BST
+/// https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/
+/// 遍历成数组
+var result = [Int]()
+func BSTinorder(root: TreeNode?) {
+    
+    if  root == nil {
+        return
+    }
+    
+    BSTinorder(root: root!.left)
+    result.append(root!.val)
+    BSTinorder(root: root!.right)
+}
+
+func findTarget(_ root: TreeNode?, _ k: Int) -> Bool {
+    BSTinorder(root: root)
+    print("resutl:\(result)")
+    var leftIndex = 0
+    var rightIndex = result.count - 1
+    
+    while leftIndex < rightIndex {
+        
+        let sum = result[leftIndex] + result[rightIndex]
+        
+        if sum > k {
+            rightIndex -= 1
+        } else if sum < k {
+            leftIndex += 1
+            
+        } else {
+            return true
+        }
+        
+        if leftIndex < 0 || rightIndex >= result.count {
+            return false
+            
+        }
+        
+    }
+    
+    return false
+}
+
+let findSumWithBTS1 = TreeNode.init(1)
+let findSumWithBTS2 = TreeNode.init(0)
+let findSumWithBTS3 = TreeNode.init(4)
+let findSumWithBTS4 = TreeNode.init(-2)
+let findSumWithBTS5 = TreeNode.init(3)
+
+findSumWithBTS1.left = findSumWithBTS2
+findSumWithBTS1.right = findSumWithBTS3
+
+findSumWithBTS2.left = findSumWithBTS4
+findSumWithBTS3.left = findSumWithBTS5
+
+
+findTarget(findSumWithBTS1, 7)
+
+/// 235. 二叉搜索树的最近公共祖先
+/// https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
+    
+    return traversalCommonAncestor(root, p, q)
+}
+
+func traversalCommonAncestor(_ cur: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
+    
+    if cur == nil { return cur }
+    
+    if cur!.val > p?.val ?? 0 && cur!.val > q?.val ?? 0 {
+        
+        let left = traversalCommonAncestor(cur?.left, p, q)
+        
+        if left != nil {
+            return left
+        }
+        
+    }
+    
+    if cur!.val < p?.val ?? 0 && cur!.val < q?.val ?? 0 {
+        
+        let right = traversalCommonAncestor(cur?.right, p, q)
+        
+        if right != nil {
+            return right
+        }
+        
+    }
+    
+    return cur
+}
+
+/// 257. ⼆叉树的所有路径
+/// 题⽬地址：https://leetcode-cn.com/problems/binary-tree-paths/
+class Solution {
+    func binaryTreePaths(_ root: TreeNode?) -> [String] {
+
+    }
+}
