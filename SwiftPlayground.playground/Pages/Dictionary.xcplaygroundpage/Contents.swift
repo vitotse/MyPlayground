@@ -47,3 +47,21 @@ let newStringDict2 = curryDict(StringParams3)
 print(newStringDict2)
 
 
+print(StringParams)
+
+let temp = StringParams.map { (key: String, value: String) in
+    return value
+}
+print(temp)
+
+StringParams.map { (key: String, value: String) in
+    
+   if StringParams2.contains { (key2: String, value2: String) in
+        return key == key2
+   } {
+       
+       print(" key:\(key) vaule:\(value)")
+       
+   }
+    
+}
