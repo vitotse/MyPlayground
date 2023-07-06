@@ -19,7 +19,7 @@ struct ContentView: View {
         }
     }
 
-    var data: [MonthlyHoursOfSunshine] = [
+    @State var data: [MonthlyHoursOfSunshine] = [
         MonthlyHoursOfSunshine(month: 1, hoursOfSunshine: 74),
         MonthlyHoursOfSunshine(month: 2, hoursOfSunshine: 99),
         MonthlyHoursOfSunshine(month: 3, hoursOfSunshine: 62),
@@ -34,17 +34,29 @@ struct ContentView: View {
         MonthlyHoursOfSunshine(month: 12, hoursOfSunshine: 62)
     ]
         
+    @State var monthCount = 12
+    
     var body: some View {
+        
+        VStack {
+            Chart() {
                 
-        Chart() {
-            
-            ForEach(data) { shape in
-                
-                LineMark(x: .value("Month", shape.date),
-                         y: .value("Hours of Sunshine", shape.hoursOfSunshine)
-                ).foregroundStyle(.red)
+                ForEach(data) { shape in
+                    
+                    LineMark(x: .value("Month", shape.date),
+                             y: .value("Hours of Sunshine", shape.hoursOfSunshine)
+                    ).foregroundStyle(.red)
+                    
+                }
+            }
+            .padding()
+            .frame(width: 200, height: 200)
+            Button("修改内容") {
+                self.monthCount += 1
+                self.data.append(MonthlyHoursOfSunshine(month: monthCount, hoursOfSunshine: 37))
                 
             }
+            
         }
                 
     }
