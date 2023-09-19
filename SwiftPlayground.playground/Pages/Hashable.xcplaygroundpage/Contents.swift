@@ -2,8 +2,7 @@
 
 import Foundation
 
-[Equatable, Hashable, and Comparable](https://medium.com/nerd-for-tech/equatable-hashable-and-comparable-d782449f6ce8#:~:text=It%20is%20another%20protocol%20that,but%20it%20often%20goes%20unnoticed.)
-
+// [Equatable, Hashable, and Comparable](https://medium.com/nerd-for-tech/equatable-hashable-and-comparable-d782449f6ce8#:~:text=It%20is%20another%20protocol%20that,but%20it%20often%20goes%20unnoticed.)
 
 
 struct Foo {
@@ -33,11 +32,6 @@ let f3 = f1
 
 print(f3 == f1)
 print(f3 == f2)
-
-
-extension Foo: Comparable {
-    
-}
 
 
 //: [Next](@next)
