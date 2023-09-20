@@ -5,6 +5,8 @@
         <page name='Task'/>
         <page name='TaskGroup'/>
         <page name='FetchTask'/>
-        <page name='Untitled Page'/>
+        <page name='CancelTask'/>
+        <page name='Actor'/>
+        <page name='GlobalActor'/>
     </pages>
 </playground>
