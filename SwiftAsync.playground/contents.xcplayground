@@ -8,5 +8,6 @@
         <page name='CancelTask'/>
         <page name='Actor'/>
         <page name='GlobalActor'/>
+        <page name='TaskLocal'/>
     </pages>
 </playground>
