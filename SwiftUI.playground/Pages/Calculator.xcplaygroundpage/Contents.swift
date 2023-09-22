@@ -1,7 +1,6 @@
 import SwiftUI
 import PlaygroundSupport
 
-
 struct ContentView: View {
     
     var body: some View {
@@ -12,7 +11,6 @@ struct ContentView: View {
             .background(Color.red)
             .padding(20)
             .background(Color.blue)
-            
         
     }
     
