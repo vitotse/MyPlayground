@@ -9,6 +9,9 @@ import SwiftUI
 import VTMacro
 
 struct TestMarco {
+    
+    #constant("error_tip")
+
     init() {
         let test = #stringify(1)
         print("stringify\(test)")
@@ -17,7 +20,9 @@ struct TestMarco {
 }
 
 struct ContentView: View {
-    let testMarco = TestMarco()
+//    let testMarco = TestMarco()
+    let vm = VM()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -28,6 +33,18 @@ struct ContentView: View {
         .padding()
     }
 
+}
+
+class VM {
+    
+    init() {
+        setup()
+    }
+    
+    func setup() {
+        print("\(TestMarco.errorTip)")
+    }
+    
 }
 
 #Preview {

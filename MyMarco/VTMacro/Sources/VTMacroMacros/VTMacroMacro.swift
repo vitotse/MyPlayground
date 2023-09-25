@@ -25,9 +25,38 @@ public struct StringifyMacro: ExpressionMacro {
     }
 }
 
+/// 声明类型
+/// 声明属性名
+/// 如：#constant(tip)
+/// public static var tip
+public struct ConstantMacro: DeclarationMacro {
+    public static func expansion<Node, Context>(of node: Node, in context: Context) throws -> [DeclSyntax] where Node : FreestandingMacroExpansionSyntax, Context : MacroExpansionContext {
+        guard
+            let name = node.argumentList.first?
+                .expression
+                .as(StringLiteralExprSyntax.self)?
+                .segments
+                .first?
+                .as(StringSegmentSyntax.self)?
+                .content.text
+        else {
+            fatalError("compiler bug: invalid arguments")
+        }
+        
+        let camelName = name.split(separator: "_")
+            .map { String($0) }
+            .enumerated()
+            .map { $0.offset > 0 ? $0.element.capitalized : $0.element.lowercased() }
+            .joined()
+        
+        return ["public static var \(raw: camelName) = \(literal: name)"]
+    }
+}
+
 @main
 struct VTMacroPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         StringifyMacro.self,
+        ConstantMacro.self,
     ]
 }

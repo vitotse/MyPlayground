@@ -11,6 +11,10 @@
 		5F194A842AC164D900439A62 /* VTMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A832AC164D900439A62 /* VTMacroClient */; };
 		5FC3F28D2AC1722C00290941 /* VTMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F28C2AC1722C00290941 /* VTMacro */; };
 		5FC3F28F2AC1722C00290941 /* VTMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F28E2AC1722C00290941 /* VTMacroClient */; };
+		5FC3F2912AC1730C00290941 /* VTMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F2902AC1730C00290941 /* VTMacro */; };
+		5FC3F2932AC1730C00290941 /* VTMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F2922AC1730C00290941 /* VTMacroClient */; };
+		5FC3F2952AC1734F00290941 /* VTMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F2942AC1734F00290941 /* VTMacro */; };
+		5FC3F2972AC1734F00290941 /* VTMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F2962AC1734F00290941 /* VTMacroClient */; };
 		5FDA7AF52ABD9EFE0035919C /* MyMarcoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF42ABD9EFE0035919C /* MyMarcoApp.swift */; };
 		5FDA7AF72ABD9EFE0035919C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF62ABD9EFE0035919C /* ContentView.swift */; };
 		5FDA7AF92ABD9F020035919C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF82ABD9F020035919C /* Assets.xcassets */; };
@@ -57,10 +61,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FC3F2972AC1734F00290941 /* VTMacroClient in Frameworks */,
+				5FC3F2912AC1730C00290941 /* VTMacro in Frameworks */,
 				5FC3F28F2AC1722C00290941 /* VTMacroClient in Frameworks */,
 				5FC3F28D2AC1722C00290941 /* VTMacro in Frameworks */,
 				5F194A842AC164D900439A62 /* VTMacroClient in Frameworks */,
+				5FC3F2932AC1730C00290941 /* VTMacroClient in Frameworks */,
 				5F194A822AC164D900439A62 /* VTMacro in Frameworks */,
+				5FC3F2952AC1734F00290941 /* VTMacro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +168,10 @@
 				5F194A832AC164D900439A62 /* VTMacroClient */,
 				5FC3F28C2AC1722C00290941 /* VTMacro */,
 				5FC3F28E2AC1722C00290941 /* VTMacroClient */,
+				5FC3F2902AC1730C00290941 /* VTMacro */,
+				5FC3F2922AC1730C00290941 /* VTMacroClient */,
+				5FC3F2942AC1734F00290941 /* VTMacro */,
+				5FC3F2962AC1734F00290941 /* VTMacroClient */,
 			);
 			productName = MyMarco;
 			productReference = 5FDA7AF12ABD9EFE0035919C /* MyMarco.app */;
@@ -650,6 +662,22 @@
 			productName = VTMacro;
 		};
 		5FC3F28E2AC1722C00290941 /* VTMacroClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VTMacroClient;
+		};
+		5FC3F2902AC1730C00290941 /* VTMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VTMacro;
+		};
+		5FC3F2922AC1730C00290941 /* VTMacroClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VTMacroClient;
+		};
+		5FC3F2942AC1734F00290941 /* VTMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VTMacro;
+		};
+		5FC3F2962AC1734F00290941 /* VTMacroClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = VTMacroClient;
 		};
