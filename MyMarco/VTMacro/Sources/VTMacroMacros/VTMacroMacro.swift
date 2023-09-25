@@ -26,7 +26,7 @@ public struct StringifyMacro: ExpressionMacro {
 }
 
 @main
-struct TestSwiftMacroPlugin: CompilerPlugin {
+struct VTMacroPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         StringifyMacro.self,
     ]

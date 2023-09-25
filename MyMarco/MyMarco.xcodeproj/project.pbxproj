@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F194A7C2AC134B000439A62 /* TestSwiftMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A7B2AC134B000439A62 /* TestSwiftMacro */; };
-		5F194A7E2AC134B000439A62 /* TestSwiftMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A7D2AC134B000439A62 /* TestSwiftMacroClient */; };
+		5F194A822AC164D900439A62 /* VTMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A812AC164D900439A62 /* VTMacro */; };
+		5F194A842AC164D900439A62 /* VTMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A832AC164D900439A62 /* VTMacroClient */; };
+		5FC3F28D2AC1722C00290941 /* VTMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F28C2AC1722C00290941 /* VTMacro */; };
+		5FC3F28F2AC1722C00290941 /* VTMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC3F28E2AC1722C00290941 /* VTMacroClient */; };
 		5FDA7AF52ABD9EFE0035919C /* MyMarcoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF42ABD9EFE0035919C /* MyMarcoApp.swift */; };
 		5FDA7AF72ABD9EFE0035919C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF62ABD9EFE0035919C /* ContentView.swift */; };
 		5FDA7AF92ABD9F020035919C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF82ABD9F020035919C /* Assets.xcassets */; };
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F194A7F2AC135FA00439A62 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5FDA7AF12ABD9EFE0035919C /* MyMarco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMarco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA7AF42ABD9EFE0035919C /* MyMarcoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMarcoApp.swift; sourceTree = "<group>"; };
 		5FDA7AF62ABD9EFE0035919C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,8 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F194A7E2AC134B000439A62 /* TestSwiftMacroClient in Frameworks */,
-				5F194A7C2AC134B000439A62 /* TestSwiftMacro in Frameworks */,
+				5FC3F28F2AC1722C00290941 /* VTMacroClient in Frameworks */,
+				5FC3F28D2AC1722C00290941 /* VTMacro in Frameworks */,
+				5F194A842AC164D900439A62 /* VTMacroClient in Frameworks */,
+				5F194A822AC164D900439A62 /* VTMacro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +84,7 @@
 		5FDA7AE82ABD9EFE0035919C = {
 			isa = PBXGroup;
 			children = (
+				5F194A7F2AC135FA00439A62 /* MyPlayground.playground */,
 				5FDA7AF32ABD9EFE0035919C /* MyMarco */,
 				5FDA7B052ABD9F030035919C /* MyMarcoTests */,
 				5FDA7B0F2ABD9F030035919C /* MyMarcoUITests */,
@@ -150,8 +156,10 @@
 			);
 			name = MyMarco;
 			packageProductDependencies = (
-				5F194A7B2AC134B000439A62 /* TestSwiftMacro */,
-				5F194A7D2AC134B000439A62 /* TestSwiftMacroClient */,
+				5F194A812AC164D900439A62 /* VTMacro */,
+				5F194A832AC164D900439A62 /* VTMacroClient */,
+				5FC3F28C2AC1722C00290941 /* VTMacro */,
+				5FC3F28E2AC1722C00290941 /* VTMacroClient */,
 			);
 			productName = MyMarco;
 			productReference = 5FDA7AF12ABD9EFE0035919C /* MyMarco.app */;
@@ -226,7 +234,7 @@
 			);
 			mainGroup = 5FDA7AE82ABD9EFE0035919C;
 			packageReferences = (
-				5F37F56D2ABDA139000F2CAF /* XCLocalSwiftPackageReference "../TestSwiftMacro" */,
+				5FC3F28B2AC1722C00290941 /* XCLocalSwiftPackageReference "VTMacro" */,
 			);
 			productRefGroup = 5FDA7AF22ABD9EFE0035919C /* Products */;
 			projectDirPath = "";
@@ -622,20 +630,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5F37F56D2ABDA139000F2CAF /* XCLocalSwiftPackageReference "../TestSwiftMacro" */ = {
+		5FC3F28B2AC1722C00290941 /* XCLocalSwiftPackageReference "VTMacro" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../TestSwiftMacro;
+			relativePath = VTMacro;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F194A7B2AC134B000439A62 /* TestSwiftMacro */ = {
+		5F194A812AC164D900439A62 /* VTMacro */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = TestSwiftMacro;
+			productName = VTMacro;
 		};
-		5F194A7D2AC134B000439A62 /* TestSwiftMacroClient */ = {
+		5F194A832AC164D900439A62 /* VTMacroClient */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = TestSwiftMacroClient;
+			productName = VTMacroClient;
+		};
+		5FC3F28C2AC1722C00290941 /* VTMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VTMacro;
+		};
+		5FC3F28E2AC1722C00290941 /* VTMacroClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VTMacroClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

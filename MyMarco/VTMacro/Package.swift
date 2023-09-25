@@ -5,17 +5,17 @@ import PackageDescription
 import CompilerPluginSupport
 
 let package = Package(
-    name: "TestSwiftMacro",
+    name: "VTMacro",
     platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "TestSwiftMacro",
-            targets: ["TestSwiftMacro"]
+            name: "VTMacro",
+            targets: ["VTMacro"]
         ),
         .executable(
-            name: "TestSwiftMacroClient",
-            targets: ["TestSwiftMacroClient"]
+            name: "VTMacroClient",
+            targets: ["VTMacroClient"]
         ),
     ],
     dependencies: [
@@ -27,7 +27,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         // Macro implementation that performs the source transformation of a macro.
         .macro(
-            name: "TestSwiftMacroMacros",
+            name: "VTMacroMacros",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
@@ -35,16 +35,16 @@ let package = Package(
         ),
 
         // Library that exposes a macro as part of its API, which is used in client programs.
-        .target(name: "TestSwiftMacro", dependencies: ["TestSwiftMacroMacros"]),
+        .target(name: "VTMacro", dependencies: ["VTMacroMacros"]),
 
         // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "TestSwiftMacroClient", dependencies: ["TestSwiftMacro"]),
+        .executableTarget(name: "VTMacroClient", dependencies: ["VTMacro"]),
 
         // A test target used to develop the macro implementation.
         .testTarget(
-            name: "TestSwiftMacroTests",
+            name: "VTMacroTests",
             dependencies: [
-                "TestSwiftMacroMacros",
+                "VTMacroMacros",
                 .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
             ]
         ),

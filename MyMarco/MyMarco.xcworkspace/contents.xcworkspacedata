@@ -5,6 +5,6 @@
       location = "group:MyMarco.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../TestSwiftMacro">
+      location = "group:MyPlayground.playground">
    </FileRef>
 </Workspace>

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
-import TestSwiftMacro
+import VTMacro
 
 struct TestMarco {
     init() {
         let test = #stringify(1)
         print("stringify\(test)")
+        
     }
 }
 
