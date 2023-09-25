@@ -15,9 +15,8 @@ struct TestMarco {
     }
 }
 
-
 struct ContentView: View {
-    let TestMarco = TestMarco()
+    let testMarco = TestMarco()
     var body: some View {
         VStack {
             Image(systemName: "globe")

@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F37F56F2ABDA139000F2CAF /* TestSwiftMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5F37F56E2ABDA139000F2CAF /* TestSwiftMacro */; };
-		5F37F5712ABDA139000F2CAF /* TestSwiftMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5F37F5702ABDA139000F2CAF /* TestSwiftMacroClient */; };
-		5FD58DA02ABDA3EF00087B0C /* TestSwiftMacro in Sources */ = {isa = PBXBuildFile; fileRef = 5F37F56C2ABDA0A1000F2CAF /* TestSwiftMacro */; };
+		5F194A7C2AC134B000439A62 /* TestSwiftMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A7B2AC134B000439A62 /* TestSwiftMacro */; };
+		5F194A7E2AC134B000439A62 /* TestSwiftMacroClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5F194A7D2AC134B000439A62 /* TestSwiftMacroClient */; };
 		5FDA7AF52ABD9EFE0035919C /* MyMarcoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF42ABD9EFE0035919C /* MyMarcoApp.swift */; };
 		5FDA7AF72ABD9EFE0035919C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF62ABD9EFE0035919C /* ContentView.swift */; };
 		5FDA7AF92ABD9F020035919C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA7AF82ABD9F020035919C /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F37F56C2ABDA0A1000F2CAF /* TestSwiftMacro */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TestSwiftMacro; path = ../TestSwiftMacro; sourceTree = "<group>"; };
 		5FDA7AF12ABD9EFE0035919C /* MyMarco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMarco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA7AF42ABD9EFE0035919C /* MyMarcoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMarcoApp.swift; sourceTree = "<group>"; };
 		5FDA7AF62ABD9EFE0035919C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +47,6 @@
 		5FDA7B0C2ABD9F030035919C /* MyMarcoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMarcoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA7B102ABD9F030035919C /* MyMarcoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMarcoUITests.swift; sourceTree = "<group>"; };
 		5FDA7B122ABD9F030035919C /* MyMarcoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMarcoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		5FDA7B1F2ABD9F2A0035919C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = Playground/MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F37F5712ABDA139000F2CAF /* TestSwiftMacroClient in Frameworks */,
-				5F37F56F2ABDA139000F2CAF /* TestSwiftMacro in Frameworks */,
+				5F194A7E2AC134B000439A62 /* TestSwiftMacroClient in Frameworks */,
+				5F194A7C2AC134B000439A62 /* TestSwiftMacro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +79,6 @@
 		5FDA7AE82ABD9EFE0035919C = {
 			isa = PBXGroup;
 			children = (
-				5F37F56C2ABDA0A1000F2CAF /* TestSwiftMacro */,
-				5FDA7B1F2ABD9F2A0035919C /* MyPlayground.playground */,
 				5FDA7AF32ABD9EFE0035919C /* MyMarco */,
 				5FDA7B052ABD9F030035919C /* MyMarcoTests */,
 				5FDA7B0F2ABD9F030035919C /* MyMarcoUITests */,
@@ -155,8 +150,8 @@
 			);
 			name = MyMarco;
 			packageProductDependencies = (
-				5F37F56E2ABDA139000F2CAF /* TestSwiftMacro */,
-				5F37F5702ABDA139000F2CAF /* TestSwiftMacroClient */,
+				5F194A7B2AC134B000439A62 /* TestSwiftMacro */,
+				5F194A7D2AC134B000439A62 /* TestSwiftMacroClient */,
 			);
 			productName = MyMarco;
 			productReference = 5FDA7AF12ABD9EFE0035919C /* MyMarco.app */;
@@ -275,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FD58DA02ABDA3EF00087B0C /* TestSwiftMacro in Sources */,
 				5FDA7AF72ABD9EFE0035919C /* ContentView.swift in Sources */,
 				5FDA7AF52ABD9EFE0035919C /* MyMarcoApp.swift in Sources */,
 			);
@@ -635,11 +629,11 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F37F56E2ABDA139000F2CAF /* TestSwiftMacro */ = {
+		5F194A7B2AC134B000439A62 /* TestSwiftMacro */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TestSwiftMacro;
 		};
-		5F37F5702ABDA139000F2CAF /* TestSwiftMacroClient */ = {
+		5F194A7D2AC134B000439A62 /* TestSwiftMacroClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TestSwiftMacroClient;
 		};
